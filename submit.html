@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Your Time</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Submit Your Time</h1>
+
+  <!-- Form for submitting times -->
+  <form id="time-submit-form">
+    <label for="track">Track:</label>
+    <select id="track" required>
+      <option value="Mario Kart Stadium">Mario Kart Stadium</option>
+      <option value="Water Park">Water Park</option>
+      <option value="Sweet Sweet Canyon">Sweet Sweet Canyon</option>
+      <option value="Thwomp Ruins">Thwomp Ruins</option>
+      <!-- Add other tracks here -->
+    </select>
+
+    <label for="category">Category:</label>
+    <select id="category" required>
+      <option value="150cc Meta NITA">150cc Meta NITA</option>
+      <!-- Add other categories here -->
+    </select>
+
+    <label for="country">Country:</label>
+    <select id="country" required>
+      <option value="Canada">Canada</option>
+      <!-- Add other countries here -->
+    </select>
+
+    <label for="player">Player Name:</label>
+    <input type="text" id="player" required>
+
+    <label for="time">Time:</label>
+    <input type="text" id="time" placeholder="1:45.123" required>
+
+    <label for="screenshot">Screenshot/Video Link:</label>
+    <input type="url" id="screenshot" required>
+
+    <button type="submit">Submit Time</button>
+  </form>
+
+  <script src="submit.js"></script> <!-- Link to the JavaScript -->
+</body>
+</html>
