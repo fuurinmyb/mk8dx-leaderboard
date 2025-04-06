@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mario Kart 8 DX Leaderboard</title>
+  <link rel="stylesheet" href="style.css">  <!-- Link to the CSS -->
+</head>
+<body>
+  <!-- Leaderboard Display -->
+  <h1>150cc Meta NITA Leaderboards</h1>
+  <div class="leaderboard-grid">
+    <div class="track-board">
+      <div class="track-header">
+          <img src="Tracks/MK8D_Wii_Mushroom_Gorge_Course_Icon.webp" alt="Mushroom Gorge">
+          <text><a href="mushroom-gorge.html">Mario Kart Stadium</a></text>
+          <img src="Icons/MK8_MushroomCup.webp" alt="Mushroom Cup">
+      </div>
+      <table id="Mario-Kart-Stadium-board" class="leaderboard">
+        <th style="width: 7%;">#</th>
+          <th style="width: 15%;">Nation</th>
+          <th style="width: 60%;">Player</th>
+          <th style="width: 20%;">Time</th>
+        </tr>
+        <!-- Leaderboard entries will be added dynamically here -->
+      </table>
+    </div>
+    <div class="track-board">
+      <div class="track-header">
+          <img src="Tracks/MK8D_Wii_Mushroom_Gorge_Course_Icon.webp" alt="Mushroom Gorge">
+          <text><a href="mushroom-gorge.html">Water Park</a></text>
+          <img src="Icons/MK8_MushroomCup.webp" alt="Mushroom Cup">
+      </div>
+      <table id="Water-Park-board" class="leaderboard">
+        <th style="width: 7%;">#</th>
+          <th style="width: 15%;">Nation</th>
+          <th style="width: 60%;">Player</th>
+          <th style="width: 20%;">Time</th>
+        </tr>
+        <!-- Leaderboard entries will be added dynamically here -->
+      </table>
+    </div>
+    <div class="track-board">
+      <div class="track-header">
+          <img src="Tracks/MK8D_Wii_Mushroom_Gorge_Course_Icon.webp" alt="Mushroom Gorge">
+          <text><a href="mushroom-gorge.html">Sweet Sweet Canyon</a></text>
+          <img src="Icons/MK8_MushroomCup.webp" alt="Mushroom Cup">
+      </div>
+      <table id="Sweet-Sweet-Canyon-board" class="leaderboard">
+        <th style="width: 7%;">#</th>
+          <th style="width: 15%;">Nation</th>
+          <th style="width: 60%;">Player</th>
+          <th style="width: 20%;">Time</th>
+        </tr>
+        <!-- Leaderboard entries will be added dynamically here -->
+      </table>
+    </div>
+    <div class="track-board">
+      <div class="track-header">
+          <img src="Tracks/MK8D_Wii_Mushroom_Gorge_Course_Icon.webp" alt="Mushroom Gorge">
+          <text><a href="mushroom-gorge.html">Thwomp Ruins</a></text>
+          <img src="Icons/MK8_MushroomCup.webp" alt="Mushroom Cup">
+      </div>
+      <table id="Thwomp-Ruins-board" class="leaderboard">
+        <th style="width: 7%;">#</th>
+          <th style="width: 15%;">Nation</th>
+          <th style="width: 60%;">Player</th>
+          <th style="width: 20%;">Time</th>
+        </tr>
+        <!-- Leaderboard entries will be added dynamically here -->
+      </table>
+    </div>
+    <div class="track-board">
+      <div class="track-header">
+          <img src="Tracks/MK8D_Wii_Mushroom_Gorge_Course_Icon.webp" alt="Mushroom Gorge">
+          <text><a href="mushroom-gorge.html">Mario Circuit</a></text>
+          <img src="Icons/MK8_MushroomCup.webp" alt="Mushroom Cup">
+      </div>
+      <table id="Mario-Circuit-board" class="leaderboard">
+        <th style="width: 7%;">#</th>
+          <th style="width: 15%;">Nation</th>
+          <th style="width: 60%;">Player</th>
+          <th style="width: 20%;">Time</th>
+        </tr>
+        <!-- Leaderboard entries will be added dynamically here -->
+      </table>
+    </div>
+  <script src="submit.js"></script> <!-- Link to the JavaScript -->
+  <script>
+    // Function to load leaderboard data from localStorage
+    function loadLeaderboard(track) {
+      const leaderboardData = JSON.parse(localStorage.getItem(track)) || [];
+      const leaderboardTable = document.getElementById(`${track.replace(/\s+/g, '-')}-board`);
+
+      leaderboardData.forEach((entry, index) => {
+        const row = document.createElement("tr");
+
+        // Create and fill the cells
+        const rankCell = document.createElement("td");
+        const countryCell = document.createElement("td");
+        const playerCell = document.createElement("td");
+        const timeCell = document.createElement("td");
+
+        // Set the rank, country flag, player, and time
+        rankCell.textContent = index + 1;
+        countryCell.innerHTML = `<img src="Country/${entry.country}.svg" alt="${entry.country}" style="width: 30px; height: 20px;">`;
+        playerCell.textContent = entry.player;
+        timeCell.innerHTML = `<a href="${entry.screenshot}" target="_blank">${entry.time}</a>`;
+
+        // Append the cells to the row
+        row.appendChild(rankCell);
+        row.appendChild(countryCell);
+        row.appendChild(playerCell);
+        row.appendChild(timeCell);
+
+        // Append the row to the table
+        leaderboardTable.appendChild(row);
+      });
+    }
+
+    // Load leaderboard for each track (you can modify these as needed)
+    loadLeaderboard("Mario Kart Stadium");
+    loadLeaderboard("Water Park");
+    loadLeaderboard("Sweet Sweet Canyon");
+    loadLeaderboard("Thwomp Ruins");
+    loadLeaderboard("Mario Circuit");
+  </script>
+</body>
+</html>
